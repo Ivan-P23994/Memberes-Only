@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :tweeets
+  devise_for :users
+  resources :tweeets, only: [:new, :create, :index]
 
   root "tweeets#index"
 end
