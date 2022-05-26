@@ -1,13 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
+ <% if user_signed_in? %>
+      <%= link_to 'Logout', destroy_user_session_path, data: {turbo_method: :delete}  %>
+    <% else %>
+      <%= link_to 'Sign In', new_user_session_path %>
+      <%= link_to 'Sign Up', new_user_registration_path %>
+  <% end %>
+
 <h1>Tweeets</h1>
 
 <div id="tweeets">
   <% @tweeets.each do |tweeet| %>
+    
     <%= render tweeet %>
-    <p>
-      <%= link_to "Show this tweeet", tweeets_path %>
-    </p>
   <% end %>
 </div>
 

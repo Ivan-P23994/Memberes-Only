@@ -1,14 +1,11 @@
 class ApplicationController < ActionController::Base
 
-  #before_action :require_login
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  private
+  protected
 
-  def require_login
-    unless logged_in?
-      flash[:error] = "You must be logged in to access this section"
-      redirect_to new_login_url # halts request cycle
-    end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :username])
   end
 
 end

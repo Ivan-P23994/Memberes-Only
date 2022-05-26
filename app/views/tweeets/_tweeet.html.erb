@@ -1,6 +1,13 @@
 <div id="<%= dom_id tweeet %>">
   <p>
+    <% if user_signed_in?%>
+      <span class="author"><strong>Posted by: <%= tweeet.user.username %> </strong></span>
+    <% else %>
+      <span class="author"><strong> Posted by Anonymus</strong></span>
+    <% end %>
+    <br>
     <strong>Tweeet:</strong>
+    <br>
     <%= tweeet.tweeet %>
   </p>
 

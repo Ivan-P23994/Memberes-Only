@@ -1,25 +1,25 @@
 class TweeetsController < ApplicationController
   before_action :set_tweeet, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
 
-  # GET /tweeets or /tweeets.json
   def index
     @tweeets = Tweeet.all
   end
 
-  # GET /tweeets/1 or /tweeets/1.json
+
   def show
   end
 
-  # GET /tweeets/new
+
   def new
     @tweeet = current_user.tweeets.build
   end
 
-  # GET /tweeets/1/edit
+  
   def edit
   end
 
-  # POST /tweeets or /tweeets.json
+  
   def create
     @tweeet = current_user.tweeets.build(tweeet_params)
 
@@ -34,7 +34,7 @@ class TweeetsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tweeets/1 or /tweeets/1.json
+  
   def update
     respond_to do |format|
       if @tweeet.update(tweeet_params)
@@ -47,7 +47,7 @@ class TweeetsController < ApplicationController
     end
   end
 
-  # DELETE /tweeets/1 or /tweeets/1.json
+ 
   def destroy
     @tweeet.destroy
 
