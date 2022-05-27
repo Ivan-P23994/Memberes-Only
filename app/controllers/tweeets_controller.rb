@@ -1,24 +1,20 @@
 class TweeetsController < ApplicationController
-  before_action :set_tweeet, only: %i[ show edit update destroy ]
+  before_action :set_tweeet, only: %i[ show edit update destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @tweeets = Tweeet.all
+    @tweeets = Tweeet.order('created_at DESC').first(6)
   end
-
 
   def show
   end
-
 
   def new
     @tweeet = current_user.tweeets.build
   end
 
-  
   def edit
   end
-
   
   def create
     @tweeet = current_user.tweeets.build(tweeet_params)
@@ -65,6 +61,6 @@ class TweeetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tweeet_params
-      params.require(:tweeet).permit(:tweeet, :user_id)
+      params.require(:tweeet).permit(:tweeet, :title, :user_id)
     end
 end

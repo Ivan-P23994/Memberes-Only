@@ -1,19 +1,76 @@
 <p style="color: green"><%= notice %></p>
 
- <% if user_signed_in? %>
-      <%= link_to 'Logout', destroy_user_session_path, data: {turbo_method: :delete}  %>
-    <% else %>
-      <%= link_to 'Sign In', new_user_session_path %>
-      <%= link_to 'Sign Up', new_user_registration_path %>
-  <% end %>
+ <nav class="navbar">
+   <% if user_signed_in? %>
+        <%= link_to 'Logout', destroy_user_session_path, data: {turbo_method: :delete}  %>
+      <% else %>
+        <%= link_to 'Sign In', new_user_session_path %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+    <% end %>
+ </nav>
 
-<h1>Tweeets</h1>
 
-<div id="tweeets">
-  <% @tweeets.each do |tweeet| %>
-    
-    <%= render tweeet %>
-  <% end %>
+
+<div class="main_content">
+  <div class="tweeet_index_container">
+    <% @tweeets.each do |tweeet| %>
+      <%= render tweeet %>
+    <% end %>
+
+  </div>
+  <div class="content_sidebar">
+            <span class="section_title">Announcments</span>
+            <div class="announcments_box">
+                <div class="announcment">
+                    <span>Site Maintainance</span>
+                    <p>Yonsequat mauris nunc congue nisi. Dignissim enim sit amet venenatis urna cursus eget. Ultricies
+                        mi
+                        quis hendrerit dolor.</p>
+                </div>
+                <div class="announcment">
+                    <span>Community Share Day</span>
+                    <p>Yonsequat mauris nunc congue nisi. Dignissim enim sit amet venenatis urna cursus eget. Ultricies
+                        mi
+                        quis hendrerit dolor.</p>
+                </div>
+                <div class="announcment">
+                    <span>Update Privacy Policy</span>
+                    <p>Yonsequat mauris nunc congue nisi. Dignissim enim sit amet venenatis urna cursus eget. Ultricies
+                        mi
+                        quis hendrerit dolor.</p>
+
+                </div>
+
+            </div>
+
+            <span class="section_title">Trending</span>
+            <div class="trending_box">
+
+                <div class="trend">
+                    <%= image_tag "cat.jpeg" %>
+                    <div class="trend_description">
+                        <span>@JohnDoe</span>
+                        <p>Just Passing By</p>
+                    </div>
+                </div>
+
+                <div class="trend">
+                    <%= image_tag "cat.jpeg" %>
+                    <div class="trend_description">
+                        <span>@JohnDoe</span>
+                        <p>On A Bicycle</p>
+                    </div>
+                </div>
+
+                <div class="trend">
+                    <%= image_tag "cat.jpeg" %>
+                    <div class="trend_description">
+                        <span>@JohnDoe</span>
+                        <p>Bonzanza</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 </div>
 
 <%= link_to "New tweeet", new_tweeet_path %>

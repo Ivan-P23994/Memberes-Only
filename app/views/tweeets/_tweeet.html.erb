@@ -1,14 +1,28 @@
-<div id="<%= dom_id tweeet %>">
-  <p>
-    <% if user_signed_in?%>
-      <span class="author"><strong>Posted by: <%= tweeet.user.username %> </strong></span>
-    <% else %>
-      <span class="author"><strong> Posted by Anonymus</strong></span>
-    <% end %>
-    <br>
-    <strong>Tweeet:</strong>
-    <br>
-    <%= tweeet.tweeet %>
-  </p>
+<div class="tweet_card">
 
+
+   <div class="tweet_content">
+     <div class="tweet_text">
+       <span> <%= tweeet.title %></span>
+       <div class="tweet_card_p"><%= tweeet.tweeet %></div>
+     </div>
+     <div class="tweet_author">
+       <% if user_signed_in?%>
+         <%= image_tag "cat.jpeg" %>
+       <% else %>
+         <%= image_tag "cat.jpeg" %>
+       <% end %>
+       <% if user_signed_in?%>
+          <span class="author"><%= tweeet.user.username %></span>
+        <% else %>
+          <p class="author">Anonymus</p>
+        <% end %>
+     </div>
+    </div>
+  
+     <div class="icon_row">
+       <%= image_tag "eye-plus.png" %>
+       <%= image_tag "share-variant-outline.png" %>
+       <%= image_tag "star-plus.png" %>
+      </div>
 </div>

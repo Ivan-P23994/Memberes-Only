@@ -1,0 +1,99 @@
+
+.tweet_card{
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5vh;
+    border-radius: 1vh;
+    border-left: 7px solid;
+    border-left-color: goldenrod;
+    background-color: white;
+    height: 10vw;
+    width: 22vw;
+    overflow: hidden;
+    box-shadow:
+      0 1px 1px hsl(0deg 0% 0% / 0.075),
+      0 2px 2px hsl(0deg 0% 0% / 0.075),
+      0 4px 4px hsl(0deg 0% 0% / 0.075),
+      0 8px 8px hsl(0deg 0% 0% / 0.075),
+      0 16px 16px hsl(0deg 0% 0% / 0.075)
+    ;
+}
+
+.tweet_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+.tweet_card span {
+    width: 14vw;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 1vh;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+
+.tweet_card_p {
+    font-family: 'Roboto', sans-serif;
+    color: gray;
+    font-size: 0.7rem;
+    padding-right: 1vw;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.tweet_author {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-end;
+    width: 25%;
+    
+}
+
+.tweet_author img {
+    border-radius: 50%;
+    height: 6vh;
+    width: 6vh;
+    margin-right: 1vw;
+}
+
+.tweet_author span {
+    width: 4.5vw;
+    color: black;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+
+.tweet_text{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+} 
+
+.icon_row {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.icon_row img {
+    margin-left: 0.5vw;
+    height: 2.4vh;
+    width: 2.4vh;
+}
