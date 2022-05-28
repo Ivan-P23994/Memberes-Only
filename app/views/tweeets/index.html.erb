@@ -1,18 +1,39 @@
 <p style="color: green"><%= notice %></p>
 
- <nav class="navbar">
-   <% if user_signed_in? %>
-        <%= link_to 'Logout', destroy_user_session_path, data: {turbo_method: :delete}  %>
+
+
+
+ <div class="header">
+  <div class="lower_header">
+    <div class="header_left">
+      <%= image_tag "cat.jpeg" %>
+      <div class="hello_box">
+        <% if user_signed_in? %>
+          <span class="user_greet_small">Hi there,</span>
+          <span class="user_greetings"><%= current_user.username%> (<%= current_user.email%>) </span>
+        <% else %>
+          <span class="user_greet_small">Hi there,</span>
+          <span class="user_greetings">please register or sign in.</span>
+        <% end %>
+      </div>
+    </div>
+    <div class="header_buttons">
+      <% if user_signed_in? %>
+        <%= button_to 'New Tweet', new_tweeet_path, method: :get, class:'dummy_button' %>
+        <%= button_to 'Logout', destroy_user_session_path, method: :delete, class:'dummy_button' %>
       <% else %>
-        <%= link_to 'Sign In', new_user_session_path %>
-        <%= link_to 'Sign Up', new_user_registration_path %>
-    <% end %>
- </nav>
+        <%= button_to 'Sign In', new_user_session_path, method: :get, class:'dummy_button' %>
+        <%= button_to 'Register', new_user_registration_path, method: :get, class:'dummy_button' %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
 
 <div class="main_content">
   <div class="tweeet_index_container">
+    <span class="tweet_title">Posts</span>
     <% @tweeets.each do |tweeet| %>
       <%= render tweeet %>
     <% end %>
@@ -49,28 +70,27 @@
                 <div class="trend">
                     <%= image_tag "cat.jpeg" %>
                     <div class="trend_description">
-                        <span><%= @tweeets[-1].user.email %></span>
-                        <p><%= @tweeets[-1].title %></p>
+                        <span><%= @tweeets[1].user.email %></span>
+                        <p><%= @tweeets[1].title %></p>
                     </div>
                 </div>
 
                 <div class="trend">
                     <%= image_tag "cat.jpeg" %>
                     <div class="trend_description">
-                        <span><%= @tweeets[-2].user.email %></span>
-                        <p><%= @tweeets[-2].title %></p>
+                        <span><%= @tweeets[2].user.email %></span>
+                        <p><%= @tweeets[2].title %></p>
                     </div>
                 </div>
 
                 <div class="trend">
                     <%= image_tag "cat.jpeg" %>
                     <div class="trend_description">
-                        <span><%= @tweeets[-3].user.email %></span>
-                        <p><%= @tweeets[-3].title %></p>
+                        <span><%= @tweeets[3].user.email %></span>
+                        <p><%= @tweeets[3].title %></p>
                     </div>
                 </div>
             </div>
         </div>
 </div>
 
-<%= link_to "New tweeet", new_tweeet_path %>
