@@ -49,24 +49,24 @@
                 <div class="trend">
                     <%= image_tag "cat.jpeg" %>
                     <div class="trend_description">
-                        <span>@JohnDoe</span>
-                        <p>Just Passing By</p>
+                        <span><%= @tweeets[-1].user.email %></span>
+                        <p><%= @tweeets[-1].title %></p>
                     </div>
                 </div>
 
                 <div class="trend">
                     <%= image_tag "cat.jpeg" %>
                     <div class="trend_description">
-                        <span>@JohnDoe</span>
-                        <p>On A Bicycle</p>
+                        <span><%= @tweeets[-2].user.email %></span>
+                        <p><%= @tweeets[-2].title %></p>
                     </div>
                 </div>
 
                 <div class="trend">
                     <%= image_tag "cat.jpeg" %>
                     <div class="trend_description">
-                        <span>@JohnDoe</span>
-                        <p>Bonzanza</p>
+                        <span><%= @tweeets[-3].user.email %></span>
+                        <p><%= @tweeets[-3].title %></p>
                     </div>
                 </div>
             </div>

@@ -44,7 +44,7 @@ body {
 
 
 .content_sidebar {
-    grid-column: 8 / -1;
+    grid-column: 9 / -1;
     display: flex;
     flex-direction: column;
     align-items: center;
