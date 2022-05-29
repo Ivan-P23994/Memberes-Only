@@ -1,9 +1,5 @@
-<p style="color: green"><%= notice %></p>
 
-
-
-
- <div class="header">
+<div class="header">
   <div class="lower_header">
     <div class="header_left">
       <%= image_tag "cat.jpeg" %>
@@ -32,6 +28,11 @@
 
 
 <div class="main_content">
+<% flash.each do |type, msg| %>
+  <div class="index_notice">
+    <%= msg %>
+  </div>
+<% end %>
   <div class="tweeet_index_container">
     <span class="tweet_title">Posts</span>
     <% @tweeets.each do |tweeet| %>
@@ -59,9 +60,7 @@
                     <p>Yonsequat mauris nunc congue nisi. Dignissim enim sit amet venenatis urna cursus eget. Ultricies
                         mi
                         quis hendrerit dolor.</p>
-
                 </div>
-
             </div>
 
             <span class="section_title">Trending</span>

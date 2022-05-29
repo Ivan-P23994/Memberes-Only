@@ -3,11 +3,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
+
 }
 
 body {
     display: grid;
-    height: 100vh;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
     font-family: 'Roboto', sans-serif;
@@ -28,8 +29,20 @@ body {
       0 8px 8px hsl(0deg 0% 0% / 0.075),
       0 16px 16px hsl(0deg 0% 0% / 0.075)
     ;
+    border: 1px solid white;
 }
+.index_notice {
+    z-index: 10;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    padding-top: 2.5vh;
+    position: fixed;
+    color: green;
+    background-color: honeydew;
+    width: 90vw;
+    height: 7vh;
 
+}
 .lower_header {
     grid-area: 1 / 1 / 2 / -1;
     display: flex;
@@ -98,13 +111,14 @@ body {
 .main_content{
     background-color: #cffafe;
     grid-area: 2 / 2 /11 / 11;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
+    overflow: hidden;
 }
 
 .tweeet_index_container{
     grid-column: 1 / 9;
-    height: 100%;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
